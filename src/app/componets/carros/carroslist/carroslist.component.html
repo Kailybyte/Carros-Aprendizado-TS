@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Listagem de Carros</h3>
+                    <div class="direita">
+                        <button type="button" class="btn btn-primary btn-rounded mt-3" mdbRipple routerLink="/admin/carros/new">Novo</button>
+                    </div>
+                    <table class="table table-striped" border="1">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (carro of lista; track $index) {
+                            <tr>
+                                <td>{{carro.id}}</td>
+                                <td>{{carro.nome}}</td>
+                                <td class="text-end">
+                                    <button type="button" class="btn btn-success btn-sm me-2" mdbRipple routerLink="/admin/carros/edit/{{carro.id}}">
+                                        Editar
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm" mdbRipple (click)="deleteById(carro)">
+                                        Deletar
+                                    </button>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
