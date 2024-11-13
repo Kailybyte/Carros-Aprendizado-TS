@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Carro } from '../../../models/carro';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-carrosdetails',
@@ -29,11 +30,25 @@ export class CarrosdetailsComponent {
   }
 
   save() {
+
+    Swal.fire({
+      title: 'Sucesso!',
+      text: 'Salvo com sucesso!',
+      icon: 'success',
+      confirmButtonText: 'ok'
+    })
+
     if (this.carro.id > 0){
-      alert('Editado com sucesso!');
+      
+    Swal.fire({
+      title: 'Sucesso!',
+      text: 'Editado com sucesso  ! ',
+      icon: 'success',
+      confirmButtonText: 'ok'
+    })
+      
       this.router2.navigate(['admin/carros'], { state: { carroeditado: this.carro } });
     }else
-    alert('Salvo com sucesso!');
     this.router2.navigate(['admin/carros'], { state: { carroNovo: this.carro } });
   }
   
